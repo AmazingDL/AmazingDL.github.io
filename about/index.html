@@ -17,10 +17,20 @@
   <meta name="description" content="个人博客，记录学习和生活">
   <meta name="author" content="AmazingDL">
   <meta name="keywords" content="">
-  <title>分类 - 无邪の博客</title>
+  <title>关于 - 无邪の博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -161,64 +171,61 @@
         <div class="py-5" id="board"
           >
           
+            <div class="about-avatar">
+              <img src="/img/avatar.png" srcset="/img/loading.gif"
+                   class="img-fluid" alt="avatar">
+            </div>
+          
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-
-
-
-
-
-<div class="category-list">
-  
-  
-  
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckej8rg2k0000tsu57zbwhsdh" role="tab" data-toggle="collapse" href="#collapse-ckej8rg2k0000tsu57zbwhsdh"
-        aria-expanded="false"
-      >
-        Java
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/Java/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>2</span>
-      </a>
-      <div class="category-collapse">
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">myname</div>
+    <div class="about-intro">一句简短的介绍</div>
+    <div class="about-icons">
+      
         
+        
+        
+        <a target="_blank" rel="noopener" href="https://github.com" class="
+           hint--bottom hint--rounded"
+           aria-label=GitHub
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
           
-  <div id="collapse-ckej8rg2k0000tsu57zbwhsdh" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckej8rg2k0000tsu57zbwhsdh">
-    
-    
-    
-      
-      
-        <a href="/2020/09/01/Java%20SE%E4%B9%8B%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="list-group-item list-group-item-action">
-          <span class="category-post">Java SE之基本语法</span>
         </a>
       
-    
-      
-      
-        <a href="/2020/08/26/Java%20web%E4%B9%8BJDBC%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="list-group-item list-group-item-action">
-          <span class="category-post">Java web之JDBC的基本使用</span>
-        </a>
-      
-    
-  </div>
-
         
-      </div>
+        
+        
+        <a target="_blank" rel="noopener" href="https://douban.com" class="
+           hint--bottom hint--rounded"
+           aria-label=豆瓣
+        >
+          <i class="iconfont icon-douban-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+        
+        
+        
+        <a href="javascript:;" class="qr-trigger
+           "
+           
+        >
+          <i class="iconfont icon-wechat-fill" aria-hidden="true"></i>
+          
+            <img class="qr-img" src="/img/favicon.png" srcset="/img/loading.gif" alt="qrcode" />
+          
+        </a>
+      
     </div>
+  </div>
+</div>
+<div class="mt-5 markdown-body">
   
 </div>
 
@@ -337,7 +344,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类&nbsp;",
+        "关于&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -351,6 +358,21 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
 
 
 
