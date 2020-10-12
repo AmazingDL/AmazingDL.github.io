@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>无邪の博客</title>
+  
+  
+  <link href="http://yoursite.com/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-09-01T06:28:28.511Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>AmazingDL</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java SE之类与对象</title>
+    <link href="http://yoursite.com/2020/09/01/Java%20SE%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/"/>
+    <id>http://yoursite.com/2020/09/01/Java%20SE%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</id>
+    <published>2020-09-01T06:28:28.000Z</published>
+    <updated>2020-09-01T06:28:28.511Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java SE之类与对象</title>
+    <link href="http://yoursite.com/2020/09/01/Java%20SE%E4%B9%8B%E6%95%B0%E7%BB%84/"/>
+    <id>http://yoursite.com/2020/09/01/Java%20SE%E4%B9%8B%E6%95%B0%E7%BB%84/</id>
+    <published>2020-09-01T06:28:28.000Z</published>
+    <updated>2020-09-01T06:28:28.511Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java SE之基本语法</title>
+    <link href="http://yoursite.com/2020/09/01/Java%20SE%E4%B9%8B%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+    <id>http://yoursite.com/2020/09/01/Java%20SE%E4%B9%8B%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
+    <published>2020-09-01T06:27:46.000Z</published>
+    <updated>2020-09-06T10:16:38.035Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>人生如逆旅，我亦是行人</p></blockquote><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>​        同其他编程语言一样，Java也有自己的数据类型、运算符、流程控制等基本的语法；通过简单的判断和循环就能够完成复杂的算法，从而解决各种各样的问题。</p><p>​        即是各种编程语言的思想大致相同，但每种编程语言的部分细节却又不尽相同，所以基本的语法和细节还是值得注意和警惕的。</p><p>​        就如同其他编程语言一样，即使Java是面向对象的一门编程语言，Java也需要基本的数据类型、运算符和流程控制等基础的语法，因此，本篇博客就是总结和回顾一些我在学习Java时的一些基础语法知识，是对以前知识的回顾、总结，并希望通过本篇文章进一步加深我对Java的理解和对编程的理解。</p><h2 id="二、数据类型"><a href="#二、数据类型" class="headerlink" title="二、数据类型"></a>二、数据类型</h2><p>​        Java的数据类型包括基本数据类型和引用数据类型，其中基本数据类型包括四类八种，分别是byte、short、int、long、float、double、char和boolean。</p><blockquote><p>整数型    </p></blockquote><table><thead><tr><th align="center">类型</th><th align="center">占用存储空间</th><th align="center">范围</th><th align="center">默认值</th></tr></thead><tbody><tr><td align="center">byte</td><td align="center">1字节</td><td align="center">-128~127</td><td align="center">0</td></tr><tr><td align="center">short</td><td align="center">2字节</td><td align="center"></td><td align="center">0</td></tr><tr><td align="center">int</td><td align="center">4字节</td><td align="center"></td><td align="center">0</td></tr><tr><td align="center">long</td><td align="center">8字节</td><td align="center"></td><td align="center">0L</td></tr></tbody></table><h2 id="三、注释、关键字与命名"><a href="#三、注释、关键字与命名" class="headerlink" title="三、注释、关键字与命名"></a>三、注释、关键字与命名</h2><h2 id="四、运算符"><a href="#四、运算符" class="headerlink" title="四、运算符"></a>四、运算符</h2><h2 id="五、条件语句"><a href="#五、条件语句" class="headerlink" title="五、条件语句"></a>五、条件语句</h2><h2 id="六、循环语句"><a href="#六、循环语句" class="headerlink" title="六、循环语句"></a>六、循环语句</h2><h2 id="七、条件语句"><a href="#七、条件语句" class="headerlink" title="七、条件语句"></a>七、条件语句</h2><h2 id="八、相关面试题"><a href="#八、相关面试题" class="headerlink" title="八、相关面试题"></a>八、相关面试题</h2><h2 id="九、总结"><a href="#九、总结" class="headerlink" title="九、总结"></a>九、总结</h2>]]></content>
+    
+    
+    <summary type="html">Java基本语法的总结和回顾，从数据类型、运算符到流程控制相关的知识点汇众，既是总结，亦是回顾。</summary>
+    
+    
+    
+    <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java web之JDBC的基本使用</title>
+    <link href="http://yoursite.com/2020/08/26/Java%20web%E4%B9%8BJDBC%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2020/08/26/Java%20web%E4%B9%8BJDBC%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-08-26T12:17:43.000Z</published>
+    <updated>2020-09-01T06:31:44.130Z</updated>
+    
+    <content type="html"><![CDATA[        <h2 id="JDBC回顾"   >          <a href="#JDBC回顾" class="heading-link"><i class="fas fa-link"></i></a>JDBC回顾</h2>      <p>Java数据库连接，（Java Database Connectivity，简称JDBC）是<span class="exturl"><a class="exturl__link"   href="https://baike.baidu.com/item/Java%E8%AF%AD%E8%A8%80" >Java语言</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>中用来规范客户端程序如何来访问数据库的<span class="exturl"><a class="exturl__link"   href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%8F%A3/10418844" >应用程序接口</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，提供了诸如查询和更新数据库中数据的方法。JDBC也是Sun Microsystems的商标。我们通常说的JDBC是面向关系型数据库的。</p><p>JDBC API主要位于JDK中的<span class="exturl"><a class="exturl__link"   href="https://baike.baidu.com/item/java.sql" >java.sql</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>包中（之后扩展的内容位于javax.sql包中），主要包括</p><figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestJDBC</span> </span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//jar包，mysql-connector-java</span></span><br><span class="line"></span><br><span class="line">Connection connection=<span class="keyword">null</span>;</span><br><span class="line">PreparedStatement psmt=<span class="keyword">null</span>;</span><br><span class="line">ResultSet result=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"><span class="comment">//1.加载驱动类</span></span><br><span class="line">Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.数据库链接配置</span></span><br><span class="line">String url=<span class="string">&quot;jdbc:mysql://127.0.0.1:3306/exercise?character&quot;</span></span><br><span class="line">+ <span class="string">&quot;Encoding=utf8&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC&quot;</span>;</span><br><span class="line">String userName=<span class="string">&quot;root&quot;</span>;</span><br><span class="line"></span><br><span class="line">String password=<span class="string">&quot;134679dinglei&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.获取链接</span></span><br><span class="line">connection=DriverManager.getConnection(url,userName,password);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.SQL语句</span></span><br><span class="line">String sql=<span class="string">&quot;select * from student where id=?&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//4.PreparedStatement预处理</span></span><br><span class="line">psmt=connection.prepareStatement(sql);</span><br><span class="line"></span><br><span class="line"><span class="comment">//5.设置占位符参数</span></span><br><span class="line">psmt.setInt(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//6.使用ResultSet获得结果集</span></span><br><span class="line">result=psmt.executeQuery();</span><br><span class="line"></span><br><span class="line">Student student=<span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//7.查询结果集</span></span><br><span class="line"><span class="keyword">while</span>(result.next())&#123;</span><br><span class="line">student=<span class="keyword">new</span> Student(</span><br><span class="line">result.getInt(<span class="string">&quot;id&quot;</span>),result.getString(<span class="string">&quot;name&quot;</span>),</span><br><span class="line">result.getString(<span class="string">&quot;sex&quot;</span>),result.getString(<span class="string">&quot;address&quot;</span>),</span><br><span class="line">result.getString(<span class="string">&quot;birthday&quot;</span>)</span><br><span class="line">);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(student);</span><br><span class="line"></span><br><span class="line">&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"><span class="comment">//8.关闭连接，释放资源</span></span><br><span class="line"><span class="keyword">if</span>(result!=<span class="keyword">null</span>)&#123;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">result.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(psmt!=<span class="keyword">null</span>)&#123;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">psmt.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(connection!=<span class="keyword">null</span>)&#123;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">connection.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>]]></content>
+    
+    
+    <summary type="html">Java数据库连接，（Java Database Connectivity，简称JDBC）是[Java语言](https://baike.baidu.com/item/Java语言)中用来规范客户端程序如何来访问数据库的[应用程序接口](https://baike.baidu.com/item/应用程序接口/10418844)，提供了诸如查询和更新数据库中数据的方法。JDBC也是Sun Microsystems的商标。我们通常说的JDBC是面向关系型数据库的</summary>
+    
+    
+    
+    <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+    
+    <category term="JDBC" scheme="http://yoursite.com/tags/JDBC/"/>
+    
+  </entry>
+  
+</feed>
