@@ -26,9 +26,9 @@
 <meta property="og:description" content="Java基本语法的总结和回顾，从数据类型、运算符到流程控制相关的知识点汇众，既是总结，亦是回顾。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-01T06:27:46.000Z">
-<meta property="article:modified_time" content="2020-09-06T10:16:38.035Z">
+<meta property="article:modified_time" content="2020-10-13T02:43:41.525Z">
 <meta property="article:author" content="AmazingDL">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Java SE">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="http://yoursite.com/2020/09/01/Java%20SE%E4%B9%8B%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
@@ -215,7 +215,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-SE/" rel="tag">Java SE</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -225,7 +225,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/JDBC/" style="font-size: 13px;">JDBC</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a>
+      <a href="/tags/JDBC/" style="font-size: 13px;">JDBC</a> <a href="/tags/Java-SE/" style="font-size: 13px;">Java SE</a>
     </div>
   </div>
 
@@ -347,7 +347,7 @@
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>
+	<a class="article-tag-link-link" href="/tags/Java-SE/" rel="tag">Java SE</a>
   </span>
 
 
@@ -356,10 +356,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/09/01/Java%20SE%E4%B9%8B%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 374(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 4.4k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 17(分)</span>
 	
 
       </div>
@@ -370,11 +370,11 @@
 <p>人生如逆旅，我亦是行人</p>
 </blockquote>
 <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>​        同其他编程语言一样，Java也有自己的数据类型、运算符、流程控制等基本的语法；通过简单的判断和循环就能够完成复杂的算法，从而解决各种各样的问题。</p>
-<p>​        即是各种编程语言的思想大致相同，但每种编程语言的部分细节却又不尽相同，所以基本的语法和细节还是值得注意和警惕的。</p>
+<p>​        即使各种编程语言的思想大致相同，但每种编程语言的部分细节却又不尽相同，所以基本的语法和细节还是值得注意和警惕的。</p>
 <p>​        就如同其他编程语言一样，即使Java是面向对象的一门编程语言，Java也需要基本的数据类型、运算符和流程控制等基础的语法，因此，本篇博客就是总结和回顾一些我在学习Java时的一些基础语法知识，是对以前知识的回顾、总结，并希望通过本篇文章进一步加深我对Java的理解和对编程的理解。</p>
 <h2 id="二、数据类型"><a href="#二、数据类型" class="headerlink" title="二、数据类型"></a>二、数据类型</h2><p>​        Java的数据类型包括基本数据类型和引用数据类型，其中基本数据类型包括四类八种，分别是byte、short、int、long、float、double、char和boolean。</p>
 <blockquote>
-<p>整数型    </p>
+<p>整数</p>
 </blockquote>
 <table>
 <thead>
@@ -382,35 +382,702 @@
 <th align="center">类型</th>
 <th align="center">占用存储空间</th>
 <th align="center">范围</th>
-<th align="center">默认值</th>
 </tr>
 </thead>
 <tbody><tr>
 <td align="center">byte</td>
 <td align="center">1字节</td>
 <td align="center">-128~127</td>
-<td align="center">0</td>
 </tr>
 <tr>
 <td align="center">short</td>
 <td align="center">2字节</td>
-<td align="center"></td>
-<td align="center">0</td>
+<td align="center">-32 768 - 32 767</td>
 </tr>
 <tr>
 <td align="center">int</td>
 <td align="center">4字节</td>
-<td align="center"></td>
-<td align="center">0</td>
+<td align="center">-2 147 483 648 - 2 147 483 647</td>
 </tr>
 <tr>
 <td align="center">long</td>
 <td align="center">8字节</td>
-<td align="center"></td>
-<td align="center">0L</td>
+<td align="center">-9 223 372 036 854 775 808 - 9 223 372 036 854 775 807</td>
 </tr>
 </tbody></table>
-<h2 id="三、注释、关键字与命名"><a href="#三、注释、关键字与命名" class="headerlink" title="三、注释、关键字与命名"></a>三、注释、关键字与命名</h2><h2 id="四、运算符"><a href="#四、运算符" class="headerlink" title="四、运算符"></a>四、运算符</h2><h2 id="五、条件语句"><a href="#五、条件语句" class="headerlink" title="五、条件语句"></a>五、条件语句</h2><h2 id="六、循环语句"><a href="#六、循环语句" class="headerlink" title="六、循环语句"></a>六、循环语句</h2><h2 id="七、条件语句"><a href="#七、条件语句" class="headerlink" title="七、条件语句"></a>七、条件语句</h2><h2 id="八、相关面试题"><a href="#八、相关面试题" class="headerlink" title="八、相关面试题"></a>八、相关面试题</h2><h2 id="九、总结"><a href="#九、总结" class="headerlink" title="九、总结"></a>九、总结</h2>
+<p>注意：</p>
+<ol>
+<li>长整型数值有一个后缀L或 l；</li>
+<li>即二进制是以0b/0B开头；八进制是以数字0开头；十六进制是以0X/0x开头，此时的a-f不区分大小写。</li>
+</ol>
+<blockquote>
+<p>浮点数</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">占用存储空间</th>
+<th align="center">范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">float</td>
+<td align="center">4字节</td>
+<td align="center">大约± 3.402 823 47E+38F (有效位数为 6 ~ 7 位）</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">8字节</td>
+<td align="center">大约 ± 1.797 693 134 862 315 70E+308 (有效位数为 15 位）</td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<ol>
+<li>float 类型的数值有一个后缀F或 f (例如，3.14F。) 没有后缀F 的浮点数值（如 3.14 ) 默认为double 类型。</li>
+<li>double表示这种类型的数值精度是float类型的两倍（有人称之为双精度数值)。绝大部分应用程序都采用double类型。</li>
+<li>浮点数值不适用于无法接受舍入误差的金融计算中。 例如，命令 System.out.println( 2.0-1.1 ) 将打印出 0.8999999999999999, 而不是人们想象的0.9。</li>
+</ol>
+<blockquote>
+<p>字符</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="center">占用存储空间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">char</td>
+<td align="center">2字节</td>
+</tr>
+</tbody></table>
+<p><strong>Unicode</strong></p>
+<p>不同的地区有不同的编码机制；于是就产生了问题：一个是对于任意给定的代码值，在不同的编码方案下有可能对应不同的字母；二是采用大字符集的语言其编码长度有可能不同。</p>
+<p>常见的编码机制：美国的 ASCII、 西欧语言中的ISO 8859-1 俄罗斯的 KOI-8、 中国的 GB 18030 和 BIG-5。</p>
+<p>然而，两个字节的代码宽度足以对世界上各种语言的所有字符进行编码， 并有足够的空间留给未来的扩展。</p>
+<p>在设计 Java 时决定采用 16 位的 Unicode 字符集，这样会比使用 8 位字符集的程序设计语言有很大的改进。</p>
+<p><code>在 Java 中，char 类型描述了 UTF-16 编码中的一个代码单兀。我们强烈建议不要在程序中使用 char 类型，除非确实需要处理 UTF-16 代码单元。最好将字符串作为抽象数据类型处理。</code></p>
+<p><strong>常见的字符转义序列</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">转义序列</th>
+<th align="center">名称</th>
+<th align="center">unicode值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">\b</td>
+<td align="center">退格</td>
+<td align="center">\u0008</td>
+</tr>
+<tr>
+<td align="center">\t</td>
+<td align="center">制表</td>
+<td align="center">\u0009</td>
+</tr>
+<tr>
+<td align="center">\n</td>
+<td align="center">换行</td>
+<td align="center">\u000a</td>
+</tr>
+<tr>
+<td align="center">\r</td>
+<td align="center">回车</td>
+<td align="center">\u000d</td>
+</tr>
+<tr>
+<td align="center">\ “</td>
+<td align="center">双引号</td>
+<td align="center">\u0022</td>
+</tr>
+<tr>
+<td align="center">\ ‘</td>
+<td align="center">单引号</td>
+<td align="center">\u0027</td>
+</tr>
+<tr>
+<td align="center">\ \</td>
+<td align="center">反斜杠</td>
+<td align="center">\u005c</td>
+</tr>
+</tbody></table>
+<p><strong>常用字符与ASCII代码对照表</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">ASCII码</th>
+<th align="center">键盘</th>
+<th align="center">ASCII 码</th>
+<th align="center">键盘</th>
+<th align="center">ASCII 码</th>
+<th align="center">键盘</th>
+<th align="center">ASCII 码</th>
+<th align="center">键盘</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">27</td>
+<td align="center">ESC</td>
+<td align="center">32</td>
+<td align="center">SPACE</td>
+<td align="center">33</td>
+<td align="center">!</td>
+<td align="center">34</td>
+<td align="center">“</td>
+</tr>
+<tr>
+<td align="center">35</td>
+<td align="center">#</td>
+<td align="center">36</td>
+<td align="center">$</td>
+<td align="center">37</td>
+<td align="center">%</td>
+<td align="center">38</td>
+<td align="center">&amp;</td>
+</tr>
+<tr>
+<td align="center">39</td>
+<td align="center">‘</td>
+<td align="center">40</td>
+<td align="center">(</td>
+<td align="center">41</td>
+<td align="center">)</td>
+<td align="center">42</td>
+<td align="center">*</td>
+</tr>
+<tr>
+<td align="center">43</td>
+<td align="center">+</td>
+<td align="center">44</td>
+<td align="center">‘</td>
+<td align="center">45</td>
+<td align="center">-</td>
+<td align="center">46</td>
+<td align="center">.</td>
+</tr>
+<tr>
+<td align="center">47</td>
+<td align="center">/</td>
+<td align="center">48</td>
+<td align="center">0</td>
+<td align="center">49</td>
+<td align="center">1</td>
+<td align="center">50</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">51</td>
+<td align="center">3</td>
+<td align="center">52</td>
+<td align="center">4</td>
+<td align="center">53</td>
+<td align="center">5</td>
+<td align="center">54</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center">55</td>
+<td align="center">7</td>
+<td align="center">56</td>
+<td align="center">8</td>
+<td align="center">57</td>
+<td align="center">9</td>
+<td align="center">58</td>
+<td align="center">:</td>
+</tr>
+<tr>
+<td align="center">59</td>
+<td align="center">;</td>
+<td align="center">60</td>
+<td align="center">&lt;</td>
+<td align="center">61</td>
+<td align="center">=</td>
+<td align="center">62</td>
+<td align="center">&gt;</td>
+</tr>
+<tr>
+<td align="center">63</td>
+<td align="center">?</td>
+<td align="center">64</td>
+<td align="center">@</td>
+<td align="center">65</td>
+<td align="center">A</td>
+<td align="center">66</td>
+<td align="center">B</td>
+</tr>
+<tr>
+<td align="center">67</td>
+<td align="center">C</td>
+<td align="center">68</td>
+<td align="center">D</td>
+<td align="center">69</td>
+<td align="center">E</td>
+<td align="center">70</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">71</td>
+<td align="center">G</td>
+<td align="center">72</td>
+<td align="center">H</td>
+<td align="center">73</td>
+<td align="center">I</td>
+<td align="center">74</td>
+<td align="center">J</td>
+</tr>
+<tr>
+<td align="center">75</td>
+<td align="center">K</td>
+<td align="center">76</td>
+<td align="center">L</td>
+<td align="center">77</td>
+<td align="center">M</td>
+<td align="center">78</td>
+<td align="center">N</td>
+</tr>
+<tr>
+<td align="center">79</td>
+<td align="center">O</td>
+<td align="center">80</td>
+<td align="center">P</td>
+<td align="center">81</td>
+<td align="center">Q</td>
+<td align="center">82</td>
+<td align="center">R</td>
+</tr>
+<tr>
+<td align="center">83</td>
+<td align="center">S</td>
+<td align="center">84</td>
+<td align="center">T</td>
+<td align="center">85</td>
+<td align="center">U</td>
+<td align="center">86</td>
+<td align="center">V</td>
+</tr>
+<tr>
+<td align="center">87</td>
+<td align="center">W</td>
+<td align="center">88</td>
+<td align="center">X</td>
+<td align="center">89</td>
+<td align="center">Y</td>
+<td align="center">90</td>
+<td align="center">Z</td>
+</tr>
+<tr>
+<td align="center">91</td>
+<td align="center">[</td>
+<td align="center">92</td>
+<td align="center">\</td>
+<td align="center">93</td>
+<td align="center">]</td>
+<td align="center">94</td>
+<td align="center">^</td>
+</tr>
+<tr>
+<td align="center">95</td>
+<td align="center">_</td>
+<td align="center">96</td>
+<td align="center">`</td>
+<td align="center">97</td>
+<td align="center">a</td>
+<td align="center">98</td>
+<td align="center">b</td>
+</tr>
+<tr>
+<td align="center">99</td>
+<td align="center">c</td>
+<td align="center">100</td>
+<td align="center">d</td>
+<td align="center">101</td>
+<td align="center">e</td>
+<td align="center">102</td>
+<td align="center">f</td>
+</tr>
+<tr>
+<td align="center">103</td>
+<td align="center">g</td>
+<td align="center">104</td>
+<td align="center">h</td>
+<td align="center">105</td>
+<td align="center">i</td>
+<td align="center">106</td>
+<td align="center">j</td>
+</tr>
+<tr>
+<td align="center">107</td>
+<td align="center">k</td>
+<td align="center">108</td>
+<td align="center">l</td>
+<td align="center">109</td>
+<td align="center">m</td>
+<td align="center">110</td>
+<td align="center">n</td>
+</tr>
+<tr>
+<td align="center">111</td>
+<td align="center">o</td>
+<td align="center">112</td>
+<td align="center">p</td>
+<td align="center">113</td>
+<td align="center">q</td>
+<td align="center">114</td>
+<td align="center">r</td>
+</tr>
+<tr>
+<td align="center">115</td>
+<td align="center">s</td>
+<td align="center">116</td>
+<td align="center">t</td>
+<td align="center">117</td>
+<td align="center">u</td>
+<td align="center">118</td>
+<td align="center">v</td>
+</tr>
+<tr>
+<td align="center">119</td>
+<td align="center">w</td>
+<td align="center">120</td>
+<td align="center">x</td>
+<td align="center">121</td>
+<td align="center">y</td>
+<td align="center">122</td>
+<td align="center">z</td>
+</tr>
+<tr>
+<td align="center">123</td>
+<td align="center">{</td>
+<td align="center">124</td>
+<td align="center">|</td>
+<td align="center">125</td>
+<td align="center">}</td>
+<td align="center">126</td>
+<td align="center">~</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p> 布尔型</p>
+</blockquote>
+<p>boolean (布尔）类型有两个值：false 和 true, 用来判定逻辑条件 整型值和布尔值之间不能进行相互转换。</p>
+<h2 id="三、注释、关键字与变量"><a href="#三、注释、关键字与变量" class="headerlink" title="三、注释、关键字与变量"></a>三、注释、关键字与变量</h2><h3 id="1-注释"><a href="#1-注释" class="headerlink" title="1. 注释"></a>1. 注释</h3><p>单行注释</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行注释</span></span><br></pre></td></tr></table></figure>
+
+<p>多行注释</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 多行注释</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>文档注释</p>
+<p>该注释内容可以被JDK提供的工具javadoc所解析，生成一套以网页文件形式体现该程序的说明文档，类似于JDK说明文档；</p>
+<p>通过命令可生成该文档：javadoc  -d  文档名  -author  -version  类名.java；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> * javadoc是用于提取注释的工具，输出的是一个HTML文件；</span></span><br><span class="line"><span class="comment"> * 文档标签和其嵌入HTML</span></span><br><span class="line"><span class="comment"> * 独立文档标签是一些以@字符开头的命令，且要置于注释行的最前面；</span></span><br><span class="line"><span class="comment"> * 行内文档标签可以出现在注释的任何地方，也是一@字符开头，但是要扩展花括号内。</span></span><br><span class="line"><span class="comment"> * javadoc只能为public和protected成员进行文档注释。</span></span><br><span class="line"><span class="comment"> * 嵌入HTML</span></span><br><span class="line"><span class="comment"> * &lt;h1&gt;标题&lt;/h1&gt;</span></span><br><span class="line"><span class="comment"> * &lt;ol&gt;</span></span><br><span class="line"><span class="comment"> *   &lt;li&gt;Item one&lt;/li&gt;</span></span><br><span class="line"><span class="comment"> * &lt;/ol&gt;</span></span><br><span class="line"><span class="comment"> * 独立文档注释</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span> java.swing.JFrame</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 版本</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 作者</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 最早使用的版本</span></span><br><span class="line"><span class="comment"> * 行内文档注释</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@link</span> java.util.Date&#125; </span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@docRoot</span> &#125; 该标签产生到文档根目录的相对路径，用于文档树页面的显示超链接</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//方法上</span></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> 参数名  方法说明</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 返回值描述</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> 对方法的异常进行说明</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-关键字和标识符"><a href="#2-关键字和标识符" class="headerlink" title="2. 关键字和标识符"></a>2. 关键字和标识符</h3><p>特点：关键字中所有的字母都是小写；</p>
+<p>保留字：goto和const，即Java目前尚未使用，但以后版本可能使用；</p>
+<p>标识符：对变量、方法和类等元素命名时的字节序列。</p>
+<blockquote>
+<p>命名规则</p>
+</blockquote>
+<ol>
+<li>可使用26个英文字母的大小写，0-9，_和$组成；</li>
+<li>数字不可以开头；</li>
+<li>不可以使用关键字和保留字，但可以包含关键字和保留字；</li>
+<li>Java中严格区分大小写，长度无限制；</li>
+<li>不能包含空格。</li>
+</ol>
+<blockquote>
+<p>命名规范</p>
+</blockquote>
+<ol>
+<li>包名：多单词组成时，所有字母都都小写；</li>
+<li>类名、接口名：多单词组成时，所有单词的首字母大写；</li>
+<li>变量名、方法名：多单词组成时，第一个单词首字母小写，第二个单词开始每个单词首字母大写；</li>
+<li>常量名：所有字母都大写，多个单词时每个单词用下划线连接。</li>
+</ol>
+<h3 id="3-变量与常量"><a href="#3-变量与常量" class="headerlink" title="3. 变量与常量"></a>3. 变量与常量</h3><p>此时说明的都是局部变量或局部常量，即在一个方法内或一段代码块内声明的变量或者常量，与后面的类属性无法。</p>
+<blockquote>
+<p>变量</p>
+</blockquote>
+<p>在 Java 中，每个变量都有一个类型（ type)。在声明变量时，变量的类型位于变量名之前。</p>
+<p><strong>注意</strong>：声明一个变量之后，必须用赋值语句对变量进行显式初始化， 千万不要使用未初始化的变量。</p>
+<blockquote>
+<p>常量</p>
+</blockquote>
+<p>在 Java 中， 利用关键字 final 指示常量。</p>
+<p>关键字 final 表示这个变量只能被赋值一次。一旦被赋值之后，就不能够再更改了。习惯上，常量名使用全大写。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">double</span> CM_PER_INCH = <span class="number">2.54</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、运算符"><a href="#四、运算符" class="headerlink" title="四、运算符"></a>四、运算符</h2><blockquote>
+<p>基本运算符</p>
+</blockquote>
+<p>在 Jav 中，使用算术运算符 +、-、 *、/ 表示加、减、 乘、除运算。 </p>
+<p>当参与 / 运算的两个操作数都是整数时， 表示整数除法；否则， 表示浮点除法。 </p>
+<p>整数的求余操作（有时称为取模) 用 ％ 表示，只有整数类型变量能够进行取余运算。</p>
+<p>通常表达式中出现的最大的数据类型决定了表达式最终结果的数据类型；即如果将一个float值与一个double值相乘，结果就是double。</p>
+<p>可以在赋值中使用二元运算符，这是一种很方便的简写形式。例如， X += 4;等价于：x = x + 4; (一般地， 要把运算符放在 = 号左边，如 *= 或 ％=)。</p>
+<blockquote>
+<p>强制类型转换</p>
+</blockquote>
+<p>经常需要将一种数值类型转换为另一种数值类型。但有些会造成信息丢失。</p>
+<p>从占用存储空间小的向占用存储空间大的转换不会丢失数据类型，反之则会丢失数据类型。</p>
+<p>特殊的</p>
+<ol>
+<li>从int转换为float可能会丢失数据类型；</li>
+<li>从long转换为double可能会丢失数据类型；</li>
+<li>从long转换为float可能会丢失数据类型；</li>
+<li>从int转换位double不会丢失数据类型。</li>
+</ol>
+<p><strong>运算符中的类型转换</strong></p>
+<ol>
+<li>如果两个操作数中有一个是 double 类型， 另一个操作数就会转换为 double 类型。 </li>
+<li>否则，如果其中一个操作数是 float 类型，另一个操作数将会转换为 float 类型。 </li>
+<li>否则， 如果其中一个操作数是 long 类型， 另一个操作数将会转换为 long 类型。 </li>
+<li>否则， 两个操作数都将被转换为 int 类型。</li>
+<li>在char、byte和short中，对这些类型的任何一个进行算术运算，都会获得一个int类型，必须将其显示的类型转换会原来的类型，以将值赋给原本的类型；</li>
+</ol>
+<blockquote>
+<p> 逻辑运算符</p>
+</blockquote>
+<p>==(等于)、!=(不等于) &lt; (小于) 、&gt; (大于)、&lt;=(小于等于）和 &gt;= (大于等于）运算符都是逻辑元素符，其运算的结果都是布尔型。</p>
+<p>&amp;&amp; 和 &amp;(与)：只要有一个操作数为false，结果就为false。</p>
+<p>|| 和 |(或)：只要有一个操作数为true，结果就为true。</p>
+<p>! (非)：对操作为去反，如果操作数为true，表达式结果为false，反之同理</p>
+<p><strong>&amp;&amp; 与&amp;、||与|的区别</strong></p>
+<p>&amp; 称为逻辑与运算符，&amp;&amp; 称为短路与运算符，也可叫逻辑与运算符。</p>
+<p>​    对于&amp;：无论任何情况，&amp;两边的操作数或表达式都会参与计算。</p>
+<p>​    对于&amp;&amp;：当&amp;&amp;左边的操作数为false或左边表达式结果为false时，&amp;&amp;右边的操作数或表达式将不参与计算，此时最终结果都为false。</p>
+<p>​    综上所述，如果逻辑与运算的第一个操作数是false或第一个表达式的结果为false时，对于第二个操作数或表达式是</p>
+<p>​    否进行运算，对最终的结果没有影响，结果肯定是false。推介平时多使用&amp;&amp;，因为它效率更高些。</p>
+<p>&amp;还可以用作位运算符。当&amp;两边操作数或两边表达式的结果不是boolean类型时，&amp;用于按位与运算符的操作。</p>
+<blockquote>
+<p>位运算符</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">运算</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;&lt;</td>
+<td align="center">左移</td>
+<td align="center">3&lt;&lt;2 =&gt;3 * 2 * 2=12</td>
+</tr>
+<tr>
+<td align="center">&gt;&gt;</td>
+<td align="center">右移</td>
+<td align="center">3&gt;&gt;1=&gt;3/2=1；结果为int类型，所以为1。</td>
+</tr>
+<tr>
+<td align="center">&gt;&gt;&gt;</td>
+<td align="center">无符号右移</td>
+<td align="center">3&gt;&gt;&gt;1=&gt;3/2=1</td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center">与运算</td>
+<td align="center">6&amp;3=2</td>
+</tr>
+<tr>
+<td align="center">|</td>
+<td align="center">或运算</td>
+<td align="center">6|3=7</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">异或运算</td>
+<td align="center">6^3=5</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td align="center">取反运算</td>
+<td align="center">~6=-7</td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<ol>
+<li>如果堆char、byte、short类型的数字进行移位处理，那么在移位进行之前，他们会被转换为int类型，并且得到的结果也是一个int类型。</li>
+<li>对于&amp;、|如果两个操作数或表达式是布尔类型，则进行的是逻辑运算，且如果两个操作数都是表达式都需要进行计算，无论是否影响整个表达式的最终结果。</li>
+<li>所有的位运算都是基于二进制的，比如^运算符，如果对于6和3两个整数，其二进制分别为1010和0011，则异或的结果就是1001，也就是5。</li>
+</ol>
+<blockquote>
+<p>自增与自减</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n++; <span class="comment">// n自增1</span></span><br><span class="line">n--; <span class="comment">// n自减1</span></span><br></pre></td></tr></table></figure>
+
+<p>实际上， 这些运算符有两种形式；上面介绍的是运算符放在操作数后面的“ 后缀” 形式。</p>
+<p>还有一种“ 前缀” 形式：++n。后缀和前缀形式都会使变量值加 1 或减 1。但用在表达式中时，二者就有区别了。前缀形式会先完成加 1; 而后缀形式会使用变量原来的值。</p>
+<blockquote>
+<p>括号与运算符级别</p>
+</blockquote>
+<p>如果不使用圆括号， 就按照给出的运算符优先级次序进行计算。</p>
+<table>
+<thead>
+<tr>
+<th align="center">优先级</th>
+<th align="center">描述</th>
+<th align="center">运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center">括号</td>
+<td align="center">() []</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">正负号</td>
+<td align="center">+ -</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">自增自减，非</td>
+<td align="center">++  – !</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">乘除，取余</td>
+<td align="center">*  /  %</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">加减</td>
+<td align="center">+  -</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">移位运算</td>
+<td align="center">&lt;&lt;  &gt;&gt;  &gt;&gt;&gt;</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">大小关系</td>
+<td align="center">&gt;  &gt;=  &lt; &lt;=</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">相等关系</td>
+<td align="center">==  !=</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">按位与</td>
+<td align="center">&amp;</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="center">按位异或</td>
+<td align="center">^</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="center">按位或</td>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="center">逻辑与</td>
+<td align="center">&amp;&amp;</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="center">逻辑或</td>
+<td align="center">||</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td align="center">条件运算</td>
+<td align="center">?:</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="center">赋值运算</td>
+<td align="center">= += -= *= /= %=</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="center">位赋值运算</td>
+<td align="center">&amp;= |= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;=</td>
+</tr>
+</tbody></table>
+<h2 id="五、控制流程"><a href="#五、控制流程" class="headerlink" title="五、控制流程"></a>五、控制流程</h2><h3 id="1-条件语句"><a href="#1-条件语句" class="headerlink" title="1.  条件语句"></a>1.  条件语句</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(condition)&#123;</span><br><span class="line">    </span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span>(condition) &#123;</span><br><span class="line">    </span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>与绝大多数程序设计语言一样， Java 常常希望在某个条件为真时执行多条语句。</p>
+<p>注意：在上述中，condition可以是表达式或变量，如果是变量则必须是boolean类型，如果是表达式，表达式结果也必须是boolean类型。后面的循环语句的判断条件也是这种要求。</p>
+<h3 id="2-循环语句"><a href="#2-循环语句" class="headerlink" title="2. 循环语句"></a>2. 循环语句</h3><blockquote>
+<p>while</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(condition)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>满足条件进入循环，直到不满足条件退出循环。</p>
+<blockquote>
+<p>do…while</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125; <span class="keyword">while</span>(condition)</span><br></pre></td></tr></table></figure>
+
+<p>满足条件，继续循环继续，否则退出循环，此种循环结构执行执行一次循环体。</p>
+<blockquote>
+<p>for</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行步骤：先执行int i = 0且只执行一次；然后执行i&lt;10，结果为true时进入循环体；循环体执行完毕执行i++；</p>
+<h3 id="3-switch语句"><a href="#3-switch语句" class="headerlink" title="3. switch语句"></a>3. switch语句</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(n)&#123;</span><br><span class="line">   <span class="keyword">case</span> <span class="number">1</span>:执行语句;<span class="keyword">break</span>; </span><br><span class="line">   <span class="keyword">case</span> <span class="number">2</span>:....</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">default</span>:执行语句;<span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>case 标签可以是： </p>
+<ol>
+<li>类型为 char、byte、 short 或 int 的常量表达式。 </li>
+<li>枚举常量。 </li>
+<li>从 Java SE 7开始， case 标签还可以是字符串字面量。</li>
+</ol>
+<p>说明：</p>
+<ol>
+<li>当n与某个case匹配是，执行该条件语句。</li>
+<li>case的执行语句执行完毕后，如果没有break，则会继续执行下一个case，直到break，或者switch语句执行完毕。</li>
+<li>当所有的case都不匹配时，汇之星default部分。</li>
+</ol>
+<h3 id="4-break和continue"><a href="#4-break和continue" class="headerlink" title="4. break和continue"></a>4. break和continue</h3><p>尽管 Java 的设计者将 goto 作为保留字，但实际上并没有打算在语言中使用它。</p>
+<p>Java语言中增加了一条带标签的 break，用于中断流程控制。</p>
+<p>例如：在无限循环中，当if条件满足时则退出循环。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (condition) </span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>带标签的break；</p>
+<p>在多重循环中，可通过为循环体设置标签，然后满足一定条件时，直接退出执行的循环体；比如下面当if条件成立，就执行退出外循环了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">outter: </span><br><span class="line"><span class="keyword">while</span> ()  <span class="comment">//外循环</span></span><br><span class="line">    <span class="keyword">for</span> ()&#123; <span class="comment">//内循环；</span></span><br><span class="line">    	<span class="keyword">if</span> (condition)</span><br><span class="line">    	  <span class="keyword">break</span> outter; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有一个 continue 语句。与 break 语句一样， 它将中断正常的控制流程。continue语句将控制转移到最内层循环的首部。</p>
+<p>即退出本次循环，继续进行下一次循环。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">while</span> (sum &lt; goal ) &#123;</span><br><span class="line">    System.out.print(<span class="string">&quot;Enter a number: &quot;</span>); </span><br><span class="line">    n = in.nextlnt();</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) <span class="comment">//如果输入的只为0，退出本次循环，继续进行下一次循环。</span></span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    sum += n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、数组"><a href="#六、数组" class="headerlink" title="六、数组"></a>六、数组</h2><p><strong>概述</strong></p>
+<p>数组是一种数据结构， 用来存储同一类型值的集合。通过一个整型下标可以访问数组中的每一个值。</p>
+<p>在声明数组变量时， 需要指出数组类型 （ 数据元素类型紧跟 []) 和数组变量的名字。</p>
+<p>数组的长度是固定的。</p>
+<p>数组标识符其实只是一个引用，指向在堆中创建的一个真实对象，这个对象用以保存指向其他对象的引用。</p>
+<p><strong>声明数组</strong>：</p>
+<ul>
+<li>一位数组的声明方式；int[]  arr=new  int[]{}，int[]   arr=new  int[10]；其中方括号也可放在变量名后面；</li>
+<li>还可以这样声明int[] arr={1,3, }，这种初始化方式只能使用在数组定义之处；</li>
+<li>二维数组的声明；int[] arr[]=new int [ 3 ] [ ]；外层元素的初始值为null，内层元素的值不 能调用，否则报错；</li>
+<li>注意数组的变量名直接赋值，是把数组的首地址赋给了另一个数组，当另一个数组发生改变时，这个数组也会发生改变。</li>
+<li>使用花括号初始化数组，初始化列表的最后一个逗号是可选的；即new int{1,23,4,}也是可以的；</li>
+</ul>
+<p>案例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array = &#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>多维数组</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] array = <span class="keyword">new</span> <span class="keyword">int</span>[size] [size];<span class="comment">//声明二维数组，默认值是0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[][] array = &#123; &#123;<span class="number">16</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">13</span>&#125;， &#123;<span class="number">5</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">8</span>&#125;, (<span class="number">9</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">12</span>&#125;, &#123;<span class="number">4</span>, <span class="number">15</span>, <span class="number">14</span>, <span class="number">1</span>&#125; &#125;;<span class="comment">//声明二维数组</span></span><br></pre></td></tr></table></figure>
+
+<p>说明：二维数组与一维数组并没有太多的不同，可以把二维数据理解为存放若干个一维数组的一维数组。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] b = &#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] c = &#123;<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[][] array = &#123;a,b,c&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;array[i].length;j++) &#123;</span><br><span class="line">        System.out.print(array[i][j]+<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>更多维的数组思想类似，不过基本上用不到。</p>
+
       
     </div>
     <div class="article-footer">
