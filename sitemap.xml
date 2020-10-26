@@ -111,14 +111,14 @@
 
   
   <url>
-    <loc>https://amazingdl.github.io/categories/Java/</loc>
+    <loc>https://amazingdl.github.io/categories/Java%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2020-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://amazingdl.github.io/categories/Java%E5%9F%BA%E7%A1%80/</loc>
+    <loc>https://amazingdl.github.io/categories/Java/</loc>
     <lastmod>2020-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
