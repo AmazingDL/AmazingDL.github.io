@@ -17,20 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Repositories | 无邪の博客</title>
-  <meta name="description" content="个人博客，记录学习和生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Repositories">
-<meta property="og:url" content="https://amazingdl.github.io/repository/index.html">
+  <title>Java SE之类与对象 | 无邪の博客</title>
+  <meta name="description" content="当人们尝试描述这个世界的时候，他们会把所有的事物进行归类，具有相同属性的归为一类，从而更好的认识这个世界；当计算机想要认识这个世界的时候，它也用了相同的方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java SE之类与对象">
+<meta property="og:url" content="https://amazingdl.github.io/2020/10/14/Java%E5%9F%BA%E7%A1%80/Java%20SE%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="无邪の博客">
-<meta property="og:description" content="个人博客，记录学习和生活">
+<meta property="og:description" content="当人们尝试描述这个世界的时候，他们会把所有的事物进行归类，具有相同属性的归为一类，从而更好的认识这个世界；当计算机想要认识这个世界的时候，它也用了相同的方法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-13T00:15:02.867Z">
-<meta property="article:modified_time" content="2020-10-01T02:41:21.175Z">
+<meta property="article:published_time" content="2020-10-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-27T00:03:54.746Z">
 <meta property="article:author" content="AmazingDL">
+<meta property="article:tag" content="Java SE">
+<meta property="article:tag" content="面向对象">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://amazingdl.github.io/repository/index.html">
+  <link rel="canonical" href="https://amazingdl.github.io/2020/10/14/Java%E5%9F%BA%E7%A1%80/Java%20SE%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/index.html">
   
     <link rel="alternate" href="/atom.xml" title="无邪の博客" type="application/atom+xml">
   
@@ -47,7 +49,7 @@
 <meta name="generator" content="Hexo 5.1.1"></head>
 
 
-<body class="main-center no-sidebar" itemscope itemtype="http://schema.org/WebPage">
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
   <header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="slimContent">
     <div class="navbar-header">
@@ -320,46 +322,194 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="article article-repository article-type-list" itemscope="">
-  <header class="article-header">
-    <h1 itemprop="title">Repositories</h1>
-    <p class="text-muted">I have <span id="repo-count">0</span> projects on Github</p>
-  </header>
-  <div class="article-body">
-    <div class="repo-content">
-      <div class="blankslate">
-        <p>正在加载...</p>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="java-Java基础/Java SE之类与对象" class="article article-type-java" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java SE之类与对象
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/10/14/Java%E5%9F%BA%E7%A1%80/Java%20SE%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" class="article-date">
+	  <time datetime="2020-10-13T16:00:00.000Z" itemprop="datePublished">2020-10-14</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java-SE/" rel="tag">Java SE</a>, <a class="article-tag-link-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/14/Java%E5%9F%BA%E7%A1%80/Java%20SE%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="一、面向对象程序设计概念"><a href="#一、面向对象程序设计概念" class="headerlink" title="一、面向对象程序设计概念"></a>一、面向对象程序设计概念</h2><p>一切都是对象</p>
+<p>从面向对象程序设计讲到Java中的面向对象思想</p>
+<p>什么是面向过程设计</p>
+<p>什么是面向对象设计</p>
+<p>什么是类</p>
+<p>什么是对象</p>
+<p>Java面向对象思想中加入了接口</p>
+<p>面向对象程序设计三大特性：封装、继承和多态</p>
+<h2 id="二、自定义类"><a href="#二、自定义类" class="headerlink" title="二、自定义类"></a>二、自定义类</h2><p>使用Java创建一个自己的类</p>
+<h2 id="三、类的封装"><a href="#三、类的封装" class="headerlink" title="三、类的封装"></a>三、类的封装</h2><p>通过阐述类的属性、方法、构造器、内部类、代码块等结构来说明一个类的构成</p>
+<p>static</p>
+<p>this</p>
+<p>类的封装性</p>
+<h2 id="四、接口与抽象类"><a href="#四、接口与抽象类" class="headerlink" title="四、接口与抽象类"></a>四、接口与抽象类</h2><p>接口：多实现，只有抽象方法和静态属性的</p>
+<p>抽象类：单继承</p>
+<h2 id="六、继承与多态"><a href="#六、继承与多态" class="headerlink" title="六、继承与多态"></a>六、继承与多态</h2><p>所有的父类Object</p>
+<p>super关键字</p>
+<p>重写</p>
+<p>继承与实现等内容</p>
+<h2 id="七、其他"><a href="#七、其他" class="headerlink" title="七、其他"></a>七、其他</h2><p>包括包装类、权限修饰符、API的使用等</p>
+<h2 id="八、结束语"><a href="#八、结束语" class="headerlink" title="八、结束语"></a>八、结束语</h2>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://amazingdl.github.io/2020/10/14/Java%E5%9F%BA%E7%A1%80/Java%20SE%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" title="Java SE之类与对象" target="_blank" rel="external">https://amazingdl.github.io/2020/10/14/Java%E5%9F%BA%E7%A1%80/Java%20SE%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">AmazingDL</span><small class="ml-1x">Life Explorer</small></a></h3>
+        <div>前路漫漫，我将独自前行</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/10/25/ElasticSearch/" title="ElasticSearch-分布式全文搜索引擎"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/09/01/Java%E5%9F%BA%E7%A1%80/Java%20SE%E4%B9%8B%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="Java SE之基本语法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</article>
-
-  
+</div>
 
 
 
-<!--Github项模版-->
-<script type="text/template" id="list-template">
-  <li class="col-sm-6 col-md-6 col-lg-4">
-    <div class="repo hover-shadow hover-grow">
-      <div class="repo-image geopattern" data-pattern-id="{%=name%}"></div>
-      <h3 class="repo-title"><a href="{%=clone_url%}" target="_blank" rel="external nofollow noopener noreferrer">{%=full_name%}</a></h3>
-      <p class="repo-body">{%=description%}</p>
-      <div class="repo-meta">
-        <span class="meta meta-type pull-left" aria-label="{%=language%} project">{%=language%}</span>
-        <span class="meta meta-star" aria-label="{%=stargazers_count%} stars"><i class="icon icon-star-fill"></i> {%=stargazers_count%}</span>
-        <span class="meta meta-fork" aria-label="{%=forks_count%} forks"><i class="icon icon-code-fork"></i> {%=forks_count%}</span>
-        <span class="meta meta-last-updated" aria-label="最后更新时间：{%=updated_at%}">
-        <i class="icon icon-clock"></i> <time datetime="{%=updated_at%}">{%=updated_at%}</time></span>
-      </div>
-    </div>
-  </li>
-</script>
-<!--获取失败模版-->
-<script type="text/template" id="error-template">
-  <h3>加载失败</h3><p>请刷新或稍后再试...</p>
-</script>
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -415,61 +565,38 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-   <script type="text/javascript">
-var open = function() {
-  var baiduTpl = new Object();
-  var handleTpl = function() {
-    baiduTpl.list = baidu.template("list-template");
-    baiduTpl.error = baidu.template("error-template");
-  };
 
-  var handleGithub = function() {
-    var repoContainer = $('.repo-content');
-    var errorContainer = repoContainer.find(".blankslate");
-    var countContainer = $("#repo-count");
 
-    $.get("https://api.github.com/users/AmazingDL/repos", function(result) {
-      if (result) {
-        errorContainer.remove();
-        countContainer.text(result.length); //设置项目个数
-        var ul = $("<ul class='repo-list row clearfix'></ul>");
-        result.sort(function(a, b) {
-          return new Date(b.updated_at) - new Date(a.updated_at)
-        }).sort(function(a, b) {
-          var a_start = a.stargazers_count;
-          var b_start = b.stargazers_count;
-          if (a.fork) a_start * 0.5;
-          if (b.fork) b_start * 0.5;
-          return b_start - a_start;
-        }).map(function(repo) {
-          if (!repo.description) repo.description = "";
-          repo.updated_at = repo.updated_at.substring(0, repo.updated_at.lastIndexOf("T"));
-          var html = baiduTpl.list(repo);
-          ul.append(html);
-        })
-
-        repoContainer.append(ul);
-        $(".geopattern").each(function() {
-          $(this).geopattern($(this).data('pattern-id'));
-        });
-      } else {
-        errorContainer.append(baiduTpl.error());
-      }
-    });
-  };
-
-  return {
-    init: function() {
-      handleTpl();
-      handleGithub();
-    }
-  }
-};
-$(open().init);
-</script>
+   
 
 
 
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
