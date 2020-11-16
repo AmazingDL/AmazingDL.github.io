@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Java SE之XML解析 | 无邪の博客</title>
+  <meta name="description" content="当人们尝试描述这个世界的时候，他们会把所有的事物进行归类，具有相同属性的归为一类，从而更好的认识这个世界；当计算机想要认识这个世界的时候，它也用了相同的方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java SE之XML解析">
+<meta property="og:url" content="https://amazingdl.github.io/2020/10/15/Java%E5%9F%BA%E7%A1%80/xml/index.html">
+<meta property="og:site_name" content="无邪の博客">
+<meta property="og:description" content="当人们尝试描述这个世界的时候，他们会把所有的事物进行归类，具有相同属性的归为一类，从而更好的认识这个世界；当计算机想要认识这个世界的时候，它也用了相同的方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://amazingdl.github.io/2020/10/15/Java%E5%9F%BA%E7%A1%80/xml/1.jpg">
+<meta property="article:published_time" content="2020-10-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-11-16T01:55:52.737Z">
+<meta property="article:author" content="AmazingDL">
+<meta property="article:tag" content="Java SE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://amazingdl.github.io/2020/10/15/Java%E5%9F%BA%E7%A1%80/xml/1.jpg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://amazingdl.github.io/2020/10/15/Java%E5%9F%BA%E7%A1%80/xml/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="无邪の博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">AmazingDL</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Life Explorer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Luoyang, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/AmazingDL" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://gitee.com/dl_wuxie" target="_blank" title="Gitee" data-toggle=tooltip data-placement=top><i class="icon icon-gitee"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSQL/">NoSQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-SE/" rel="tag">Java SE</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" rel="tag">搜索引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="tag">面向对象</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Java-SE/" style="font-size: 14px;">Java SE</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" style="font-size: 13px;">搜索引擎</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 14px;">数据结构</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">框架</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13px;">消息队列</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 13px;">面向对象</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/11/12/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/MyBatis/MyBatis/" class="title">MyBatis的简单使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-11-12T12:30:25.000Z" itemprop="datePublished">2020-11-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/11/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="title">数据结构(三)——二叉树</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-11-06T23:20:47.000Z" itemprop="datePublished">2020-11-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/11/01/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/RabbitMQ/" class="title">消息队列之RabbitMQ的简单使用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-11-01T06:27:46.000Z" itemprop="datePublished">2020-11-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/" class="title">数据结构(二)——栈和队列</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-28T00:50:50.000Z" itemprop="datePublished">2020-10-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/28/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="title">数据结构(一)——线性表</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-28T00:43:19.000Z" itemprop="datePublished">2020-10-28</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="java-Java基础/xml" class="article article-type-java" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java SE之XML解析
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/10/15/Java%E5%9F%BA%E7%A1%80/xml/" class="article-date">
+	  <time datetime="2020-10-14T16:00:00.000Z" itemprop="datePublished">2020-10-15</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java-SE/" rel="tag">Java SE</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/15/Java%E5%9F%BA%E7%A1%80/xml/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="一、XML"><a href="#一、XML" class="headerlink" title="一、XML"></a>一、XML</h2><h3 id="1-1-xml概述"><a href="#1-1-xml概述" class="headerlink" title="1.1 xml概述"></a>1.1 xml概述</h3><h4 id="什么是XML"><a href="#什么是XML" class="headerlink" title="什么是XML"></a>什么是XML</h4><ul>
+<li><p>XML ：可扩展标记语言（<strong>EXtensible Markup Language</strong>）</p>
+<p>XML 它是一种<strong>标记语言</strong>，很类似 HTML，HTML文件也是XML文档，标签都是自定义的。 如：<code>&lt;user&gt;&lt;/user&gt; 或 &lt;student&gt;&lt;/student&gt;</code></p>
+</li>
+<li><p>W3C在1998年2月发布1.0版本，2004年2月又发布1.1版本，单因为1.1版本不能向下兼容1.0版本，所以1.1没有人用。同时，在2004年2月W3C又发布了1.0版本的第三版。</p>
+</li>
+</ul>
+<h4 id="XML-与-HTML-的主要差异"><a href="#XML-与-HTML-的主要差异" class="headerlink" title="XML 与 HTML 的主要差异"></a>XML 与 HTML 的主要差异</h4><ul>
+<li>xml标签都是自定义的，html标签是预定义。</li>
+<li>xml的语法严格，html语法松散。</li>
+<li>xml是存储数据的，html是展示数据。</li>
+</ul>
+<h4 id="xml的作用"><a href="#xml的作用" class="headerlink" title="xml的作用"></a>xml的作用</h4><ul>
+<li>存放数据</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">persons</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">person</span> <span class="attr">id</span>=<span class="string">&quot;p001&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">person</span> <span class="attr">id</span>=<span class="string">&quot;p002&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>李四<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">persons</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>类似于Java代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	String id;</span><br><span class="line">	String name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">	HashSet&lt;Person&gt; persons = <span class="keyword">new</span> HashSet&lt;Person&gt;();</span><br><span class="line">	persons.add( <span class="keyword">new</span> Person(<span class="string">&quot;p001&quot;</span>,<span class="string">&quot;张三&quot;</span>) );</span><br><span class="line">	persons.add( <span class="keyword">new</span> Person(<span class="string">&quot;p002&quot;</span>,<span class="string">&quot;李四&quot;</span>) );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置文件</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">className</span>=<span class="string">&quot;com.wuxie.bean.User&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;jack&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>类似于java代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String username;</span><br><span class="line">	<span class="keyword">private</span> String pws;</span><br><span class="line">	<span class="comment">//补全set\get方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Class clazz = Class.forName(<span class="string">&quot;com.wuxie.bean.User&quot;</span>);</span><br><span class="line">    Object obj = clazz.newInstance();</span><br><span class="line">    Method method = clazz.getMethod(<span class="string">&quot;setUsername&quot;</span>,String.class);</span><br><span class="line">    method.invoke(obj,<span class="string">&quot;jack&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-xml的组成元素"><a href="#1-2-xml的组成元素" class="headerlink" title="1.2 xml的组成元素"></a>1.2 xml的组成元素</h3><p>文档声明</p>
+<ul>
+<li>XML文档声明格式：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>文档声明必须为<?xml开头，以?>结束；</li>
+<li>文档声明必须从文档的0行0列位置开始；</li>
+<li>文档声明只有2个属性：</li>
+</ol>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1.</span> <span class="string">versioin：指定XML文档版本。必须属性，因为我们不会选择1.1，只会选择1.0；</span></span><br><span class="line"><span class="meta">2.</span> <span class="string">encoding：指定当前文档的编码。可选属性，默认值是utf-8；</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h4><ul>
+<li>元素 element</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>元素是XML文档中最重要的组成部分，</li>
+<li>普通元素的结构开始标签、元素体、结束标签组成。例如：<hello>大家好</hello></li>
+<li>元素体：元素体可以是元素，也可以是文本，例如：<b><a>你好</a></b></li>
+<li>空元素：空元素只有开始标签，而没有结束标签，但元素必须自己闭合，例如：<c></c></li>
+<li>元素命名：</li>
+</ol>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1.</span> <span class="string">区分大小写</span></span><br><span class="line"><span class="meta">2.</span> <span class="string">不能使用空格，不能使用冒号:</span></span><br><span class="line"><span class="meta">3.</span> <span class="string">不建议以XML、xml、Xml开头</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>格式化良好的XML文档，必须只有一个根元素。</strong></p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><ul>
+<li>属性  attribute</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;&quot;</span> <span class="attr">className</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>属性是元素的一部分，它必须出现在元素的开始标签中</li>
+<li>属性的定义格式：属性名=属性值，其中属性值必须使用单引或双引</li>
+<li>一个元素可以有0~N个属性，但一个元素中不能出现同名属性</li>
+<li>属性名不能使用空格、冒号等特殊字符，且必须以字母开头</li>
+</ol>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>XML的注释，以“<!--”开始，以“-->”结束。注释内容会被XML解析器忽略！</p>
+<h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4><p>因为很多符号已经被XML文档结构所使用，所以在元素体或属性值中想使用这些符号就必须使用转义字符，例如：“&lt;”、“&gt;”、“’”、“””、“&amp;”。</p>
+<p><img src="/2020/10/15/Java%E5%9F%BA%E7%A1%80/xml/1.jpg"></p>
+<h2 id="二、XML约束"><a href="#二、XML约束" class="headerlink" title="二、XML约束"></a>二、XML约束</h2><p>在XML技术里，可以编写一个文档来约束一个XML文档的书写规范，这称之为XML约束。<br>常见的xml约束：DTD、Schema</p>
+<h3 id="3-1-DTD约束"><a href="#3-1-DTD约束" class="headerlink" title="3.1 DTD约束"></a>3.1 DTD约束</h3><h4 id="什么是DTD"><a href="#什么是DTD" class="headerlink" title="什么是DTD"></a>什么是DTD</h4><p>DTD（Document Type Definition），文档类型定义，用来约束XML文档。规定XML文档中元素的名称，子元素的名称及顺序，元素的属性等。</p>
+<h4 id="DTD重点要求"><a href="#DTD重点要求" class="headerlink" title="DTD重点要求"></a>DTD重点要求</h4><p>开发中，我们很少自己编写DTD约束文档，通常情况我们都是通过框架提供的DTD约束文档，编写对应的XML文档。常见框架使用DTD约束有：SpringMVC、MyBatis等。</p>
+<p>通过提供的DTD“<strong>bean.dtd</strong>”编写XML。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">	使用格式如下：</span><br><span class="line">	&lt;!DOCTYPE beans SYSTEM <span class="string">&quot;bean.dtd&quot;</span>&gt;</span><br><span class="line">--&gt;</span><br><span class="line">&lt;!<span class="function">ELEMENT <span class="title">beans</span> <span class="params">(bean*,<span class="keyword">import</span>*)</span> &gt;</span></span><br><span class="line"><span class="function">&lt;!ELEMENT <span class="title">bean</span> <span class="params">(property*)</span>&gt;</span></span><br><span class="line"><span class="function">&lt;!ELEMENT <span class="title">property</span> <span class="params">(#PCDATA)</span>&gt;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&lt;!ELEMENT <span class="title">import</span> <span class="params">(#PCDATA)</span>&gt;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&lt;!ATTLIST bean id CDATA #REQUIRED</span></span><br><span class="line"><span class="function">			   className CDATA #REQUIRED</span></span><br><span class="line"><span class="function">&gt;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&lt;!ATTLIST property name CDATA #REQUIRED</span></span><br><span class="line"><span class="function">				   value CDATA #REQUIRED</span></span><br><span class="line"><span class="function">&gt;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&lt;!ATTLIST <span class="keyword">import</span> resource CDATA #REQUIRED&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="案例实现"><a href="#案例实现" class="headerlink" title="案例实现"></a>案例实现</h4><p>完成xml内容编写：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">beans</span> <span class="meta-keyword">SYSTEM</span> <span class="meta-string">&quot;bean.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;&quot;</span> <span class="attr">className</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;&quot;</span> <span class="attr">className</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">import</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">import</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-Schema约束"><a href="#3-2-Schema约束" class="headerlink" title="3.2 Schema约束"></a>3.2 Schema约束</h3><h4 id="什么是Schema"><a href="#什么是Schema" class="headerlink" title="什么是Schema"></a>什么是Schema</h4><p>Schema是新的XML文档约束；<br>Schema要比DTD强大很多，是DTD 替代者；<br>Schema本身也是XML文档，但Schema文档的扩展名为xsd，而不是xml。<br>Schema 功能更强大，数据类型更完善<br>Schema 支持名称空间</p>
+<h4 id="Schema重点要求"><a href="#Schema重点要求" class="headerlink" title="Schema重点要求"></a>Schema重点要求</h4><p>与DTD一样，要求可以通过schema约束文档编写xml文档。常见框架使用schema的有：Spring等</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>这是Spring提供的关于beans配置文件的Schema约束实现；</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.apache.commons.dbcp.BasicDataSource&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;driver&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;jdbc:mysql://localhost:3306/News?useUnicode=true<span class="symbol">&amp;amp;</span>characterEncoding=utf8<span class="symbol">&amp;amp;</span>serverTimezone=Asia/Shanghai</span></span></span><br><span class="line"><span class="tag"><span class="string">&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;username&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;password&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、XML解析"><a href="#三、XML解析" class="headerlink" title="三、XML解析"></a>三、XML解析</h2><h3 id="3-1-常见的解析方式和解析器"><a href="#3-1-常见的解析方式和解析器" class="headerlink" title="3.1 常见的解析方式和解析器"></a>3.1 常见的解析方式和解析器</h3><p>当将数据存储在XML后，我们就希望通过程序获得XML的内容。如果我们使用Java基础所学习的IO知识是可以完成的，不过你需要非常繁琐的操作才可以完成，且开发中会遇到不同问题（只读、读写）。人们为不同问题提供不同的解析方式，并提交对应的解析器，方便开发人员操作XML。</p>
+<p><strong>开发中比较常见的解析方式有三种，如下：</strong></p>
+<p>①DOM：要求解析器把整个XML文档装载到内存，并解析成一个Document对象。</p>
+<blockquote>
+<p>优点：元素与元素之间保留结构关系，故可以进行增删改查操作。<br>缺点：XML文档过大，可能出现内存溢出显现。</p>
+</blockquote>
+<p>②SAX：是一种速度更快，更有效的方法。它逐行扫描文档，一边扫描一边解析。并以事件驱动的方式进行具体解析，每执行一行，都将触发对应的事件。（了解）</p>
+<blockquote>
+<p>优点：处理速度快，可以处理大文件<br>缺点：只能读，逐行后将释放资源。</p>
+</blockquote>
+<p>③PULL：Android内置的XML解析方式，类似SAX。（了解）</p>
+<h3 id="3-2-API使用"><a href="#3-2-API使用" class="headerlink" title="3.2 API使用"></a>3.2 API使用</h3><p>DOM4J是一个Java的XML API，具有性能优异、功能强大和极其易使用的特点，它的性能超过sun公司官方的dom技术，如今可以看到越来越多的Java软件都在使用DOM4J来读写XML。</p>
+<p>如果想要使用DOM4J，需要引入支持xpath的jar包 <code>dom4j-1.6.1.jar</code></p>
+<p>DOM4J必须使用核心类SaxReader加载xml文档获得Document，通过Document对象获得文档的根元素，然后就可以操作了。</p>
+<p><strong>常用API如下：</strong></p>
+<ol>
+<li><h5 id="SaxReader对象"><a href="#SaxReader对象" class="headerlink" title="SaxReader对象"></a>SaxReader对象</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read(…) 加载执行xml文档</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Document对象</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getRootElement() 获得根元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Element对象</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">elements(…) 获得指定名称的所有子元素。可以不指定名称</span><br><span class="line">element(…) 获得指定名称第一个子元素。可以不指定名称</span><br><span class="line">getName() 获得当前元素的元素名</span><br><span class="line">attributeValue(…) 获得指定属性名的属性值</span><br><span class="line">elementText(…) 获得指定名称子元素的文本值</span><br><span class="line">getText() 获得当前元素的文本内容</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><strong>测试</strong></p>
+<p>xml文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.apache.commons.dbcp.BasicDataSource&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driverClassName&quot;</span> <span class="attr">value</span>=<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;jdbc:mysql://localhost:3306/News?useUnicode=true<span class="symbol">&amp;amp;</span>characterEncoding=utf8<span class="symbol">&amp;amp;</span>serverTimezone=Asia/Shanghai</span></span></span><br><span class="line"><span class="tag"><span class="string">&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;root&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;123456&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.wuxie.xml.User&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;id&quot;</span> <span class="attr">value</span>=<span class="string">&quot;123456&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">&quot;wuxie&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;age&quot;</span> <span class="attr">value</span>=<span class="string">&quot;22&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;address&quot;</span> <span class="attr">value</span>=<span class="string">&quot;河南省洛阳市&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>解析xml代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.获取文档的输入流</span></span><br><span class="line">FileInputStream inputStream = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">&quot;xml/test.xml&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.创建SAXReader对象</span></span><br><span class="line">SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line"></span><br><span class="line"><span class="comment">//3.获取文档对象</span></span><br><span class="line">Document document = reader.read(inputStream);</span><br><span class="line"></span><br><span class="line"><span class="comment">//4.获取根节点</span></span><br><span class="line">Element root = document.getRootElement();</span><br><span class="line"></span><br><span class="line"><span class="comment">//5.获取根节点的所有子节点</span></span><br><span class="line">List&lt;Element&gt; elements = root.elements();</span><br><span class="line"></span><br><span class="line"><span class="comment">//6.遍历</span></span><br><span class="line"><span class="keyword">if</span>(elements!=<span class="keyword">null</span> &amp;&amp; elements.size()&gt;<span class="number">0</span>) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;打印bean结点属性&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;elements.size();i++) &#123;</span><br><span class="line">        Element element = elements.get(i);</span><br><span class="line">        System.out.println(element.attributeValue(<span class="string">&quot;id&quot;</span>)+<span class="string">&quot;==========&quot;</span>+element.attributeValue(<span class="string">&quot;class&quot;</span>));</span><br><span class="line">        List&lt;Element&gt; list = element.elements();</span><br><span class="line">        System.out.println(<span class="string">&quot;打印property结点属性&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(list!=<span class="keyword">null</span> &amp;&amp; list.size()&gt;<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;list.size();j++) &#123;</span><br><span class="line">                Element child = list.get(j);</span><br><span class="line">                System.out.println(child.attributeValue(<span class="string">&quot;name&quot;</span>)+<span class="string">&quot;=&gt;&quot;</span>+child.attributeValue(<span class="string">&quot;value&quot;</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、XPath解析XML"><a href="#四、XPath解析XML" class="headerlink" title="四、XPath解析XML"></a>四、XPath解析XML</h2><ul>
+<li><p>XPath 是一门在 XML、html 文档中查找信息的语言。</p>
+</li>
+<li><p>XPath 是一个 W3C 标准，可通过W3CSchool文档查阅语法</p>
+</li>
+</ul>
+<p>由于DOM4J在解析XML时只能一层一层解析，所以当XML文件层数过多时使用会很不方便，结合XPATH就可以直接获取到某个元素</p>
+<h3 id="4-1-使用dom4j支持xpath具体操作"><a href="#4-1-使用dom4j支持xpath具体操作" class="headerlink" title="4.1 使用dom4j支持xpath具体操作"></a>4.1 使用dom4j支持xpath具体操作</h3><p>默认的情况下，dom4j不支持xpath，如果想要在dom4j里面使用xpath，需要引入支持xpath的jar包 <code>jaxen-1.1.6.jar</code></p>
+<p>在dom4j里面提供了两个方法，用来支持xpath</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">List&lt;Node&gt; <span class="title">selectNodes</span><span class="params">(<span class="string">&quot;xpath表达式&quot;</span>)</span>，用来获取多个节点</span></span><br><span class="line"><span class="function">Node <span class="title">selectSingleNode</span><span class="params">(<span class="string">&quot;xpath表达式&quot;</span>)</span>，用来获取一个节点</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-xpath表达式常用查询形式"><a href="#4-2-xpath表达式常用查询形式" class="headerlink" title="4.2 xpath表达式常用查询形式"></a>4.2 xpath表达式常用查询形式</h3><ul>
+<li><p><strong>第一种查询形式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;AAA&#x2F;DDD&#x2F;BBB： 表示一层一层的，AAA下面 DDD下面的BBB</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二种查询形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;BBB： 表示和这个名称相同，表示只要名称是BBB 都得到</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三种查询形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*: 所有元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第四种查询形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BBB[1]：表示第一个BBB元素</span><br><span class="line">BBB[last()]：表示最后一个BBB元素</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第五种查询形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;BBB[@id]： 表示只要BBB元素上面有id属性 都得到</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第六种查询形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;BBB[@id&#x3D;&#39;b1&#39;] 表示元素名称是BBB,在BBB上面有id属性，并且id的属性值是b1</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="4-3-案例实现"><a href="#4-3-案例实现" class="headerlink" title="4.3 案例实现"></a>4.3 案例实现</h3><p>编写xml文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">students</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">student</span> <span class="attr">number</span>=<span class="string">&quot;test_0001&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span> <span class="attr">id</span>=<span class="string">&quot;user&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">xing</span>&gt;</span>张<span class="tag">&lt;/<span class="name">xing</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">ming</span>&gt;</span>三<span class="tag">&lt;/<span class="name">ming</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>18<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">sex</span>&gt;</span>male<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">student</span> <span class="attr">number</span>=<span class="string">&quot;test_0002&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>test<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">age</span>&gt;</span>18<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">sex</span>&gt;</span>female<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">students</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>编写xpath代码解析xml文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        SAXReader saxReader=<span class="keyword">new</span> SAXReader();</span><br><span class="line">        String path = Demo4jXpath.class.getClassLoader().getResource(&quot;student.xml&quot;).getFile();</span><br><span class="line">        File file = <span class="keyword">new</span> File(path);</span><br><span class="line">        Document document=saxReader.read(file);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4.结合xpath语法查询</span></span><br><span class="line">        <span class="comment">//4.1查询所有student标签</span></span><br><span class="line">        List&lt;Node&gt; nodes = document.selectNodes(<span class="string">&quot;//student&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (Node node : nodes) &#123;</span><br><span class="line">            System.out.println(node);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;--------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4.2查询所有student标签下的name标签</span></span><br><span class="line">       nodes = document.selectNodes(<span class="string">&quot;//student/name&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (Node node : nodes) &#123;</span><br><span class="line">            System.out.println(node);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;--------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4.3查询student标签下带有id属性的name标签</span></span><br><span class="line">        nodes = document.selectNodes(<span class="string">&quot;//student/name[@id]&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (Node node : nodes) &#123;</span><br><span class="line">            System.out.println(node);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;--------------------&quot;</span>);</span><br><span class="line">    </span><br><span class="line">        <span class="comment">//4.4查询student标签下带有id属性的name标签 并且id属性值为user</span></span><br><span class="line">        nodes = document.selectNodes(<span class="string">&quot;//student/name[@id=&#x27;user&#x27;]&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (Node node : nodes) &#123;</span><br><span class="line">            System.out.println(node);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、案例：依赖注入"><a href="#五、案例：依赖注入" class="headerlink" title="五、案例：依赖注入"></a>五、案例：依赖注入</h2><p>xml配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;wuxie&quot;</span> <span class="attr">class</span>=<span class="string">&quot;xml.User&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;id&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span>无邪<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;age&quot;</span>&gt;</span>22<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;address&quot;</span>&gt;</span>河南省郑州市<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;AmazingDL&quot;</span> <span class="attr">class</span>=<span class="string">&quot;xml.User&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;id&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span>AmazingDL<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;age&quot;</span>&gt;</span>21<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;address&quot;</span>&gt;</span>河南省开封市<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.加载XML文件</span></span><br><span class="line">FileInputStream inputStream = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">&quot;xml/di.xml&quot;</span>));</span><br><span class="line">SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">Document document = reader.read(inputStream);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.获取根节点</span></span><br><span class="line">Element root = document.getRootElement();</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取所有bean结点</span></span><br><span class="line">List&lt;Element&gt; beanElements = (List&lt;Element&gt;) root.selectNodes(<span class="string">&quot;//bean&quot;</span>);</span><br><span class="line"></span><br><span class="line">List&lt;User&gt; users = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(beanElements!=<span class="keyword">null</span> &amp;&amp; beanElements.size()&gt;<span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;beanElements.size();i++) &#123;</span><br><span class="line">        Element beanElement = beanElements.get(i);</span><br><span class="line"></span><br><span class="line">        String className = beanElement.attributeValue(<span class="string">&quot;class&quot;</span>);</span><br><span class="line">        Class userClass = Class.forName(className);</span><br><span class="line">        User user = (User) userClass.newInstance();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//遍历property结点</span></span><br><span class="line">        List&lt;Element&gt; propertyElements = (List&lt;Element&gt;) beanElement.selectNodes(<span class="string">&quot;//property&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(propertyElements!=<span class="keyword">null</span> &amp;&amp; propertyElements.size()&gt;<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;propertyElements.size();j++) &#123;</span><br><span class="line">                Element propertyElement = propertyElements.get(j);</span><br><span class="line">                <span class="comment">//获取属性name的值</span></span><br><span class="line">                String propertyName = propertyElement.attributeValue(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">                String propertyValue = propertyElement.getText();</span><br><span class="line"></span><br><span class="line">                String methodName = <span class="string">&quot;set&quot;</span>+propertyName.substring(<span class="number">0</span>,<span class="number">1</span>).toUpperCase()+propertyName.substring(<span class="number">1</span>);</span><br><span class="line">                <span class="comment">//第一个参数是方法名，第二个及以后的参数是该方法参数的类型</span></span><br><span class="line">                Method method = userClass.getMethod( methodName, String.class);</span><br><span class="line">                method.invoke(user,propertyValue);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        users.add(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">System.out.println(users);</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、结束语"><a href="#六、结束语" class="headerlink" title="六、结束语"></a>六、结束语</h2><p>通过配置文件以及反射就能够实现依赖注入，在Spring、MyBatis等框架中，通过xml文件读取配置信息的核心思想就是通过xml解析和Java中的反射实现的。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://amazingdl.github.io/2020/10/15/Java%E5%9F%BA%E7%A1%80/xml/" title="Java SE之XML解析" target="_blank" rel="external">https://amazingdl.github.io/2020/10/15/Java%E5%9F%BA%E7%A1%80/xml/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">AmazingDL</span><small class="ml-1x">Life Explorer</small></a></h3>
+        <div>前路漫漫，我将独自前行</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/10/25/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/ElasticSearch/" title="ElasticSearch-分布式全文搜索引擎"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/10/14/Java%E5%9F%BA%E7%A1%80/Java%20SE%E4%B9%8B%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" title="Java SE之类与对象"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/AmazingDL" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://gitee.com/dl_wuxie" target="_blank" title="Gitee" data-toggle=tooltip data-placement=top><i class="icon icon-gitee"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
